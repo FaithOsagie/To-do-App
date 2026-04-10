@@ -149,6 +149,10 @@ npm start
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+### 6. Or alternatively, run the web version
+
+Open [https://to-do-app-lmr2.onrender.com/] in your browser
+
 ---
 
 ## 🗃 Database Design
