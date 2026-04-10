@@ -19,3 +19,12 @@
 {"level":"info","message":"Tasks fetched for user 69d970715c936d3c1618b5b3, filter: all, count: 0","timestamp":"2026-04-10 23:02:17"}
 {"level":"info","message":"Tasks fetched for user 69d970715c936d3c1618b5b3, filter: all, count: 0","timestamp":"2026-04-10 23:02:36"}
 {"level":"info","message":"Tasks fetched for user 69d970715c936d3c1618b5b3, filter: all, count: 0","timestamp":"2026-04-10 23:04:01"}
+{"level":"info","message":"MongoDB connected: ac-n0xhwis-shard-00-01.t6dnzne.mongodb.net","timestamp":"2026-04-10 23:27:53"}
+{"level":"info","message":"Server running in development mode on port 3000","timestamp":"2026-04-10 23:27:53"}
+{"level":"info","message":"User logged out: osagie","timestamp":"2026-04-10 23:28:00"}
+{"level":"info","message":"New user registered: osagie32","timestamp":"2026-04-10 23:28:41"}
+{"level":"info","message":"Tasks fetched for user 69d97999279f0db3ecbed6c5, filter: all, count: 0","timestamp":"2026-04-10 23:28:42"}
+{"level":"info","message":"User logged out: osagie32","timestamp":"2026-04-10 23:28:46"}
+{"level":"info","message":"User logged in: osagie32","timestamp":"2026-04-10 23:28:55"}
+{"level":"info","message":"Tasks fetched for user 69d97999279f0db3ecbed6c5, filter: all, count: 0","timestamp":"2026-04-10 23:28:56"}
+{"level":"info","message":"MongoDB connected: ac-n0xhwis-shard-00-01.t6dnzne.mongodb.net","timestamp":"2026-04-10 23:40:23"}
