@@ -1,0 +1,12 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar', { username: null }) %>
+<main class="auth-container">
+  <div class="card" style="text-align:center">
+    <h1><%= statusCode %></h1>
+    <h2><%= title %></h2>
+    <p><%= message %></p>
+    <a href="/tasks" class="btn btn-primary">Go to Tasks</a>
+  </div>
+</main>
+</body>
+</html>

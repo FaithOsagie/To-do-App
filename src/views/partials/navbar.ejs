@@ -1,0 +1,11 @@
+<nav class="navbar">
+  <a href="/tasks" class="brand">✓ TodoApp</a>
+  <% if (typeof username !== 'undefined' && username) { %>
+    <div class="nav-right">
+      <span class="greeting">Hi, <strong><%= username %></strong></span>
+      <form action="/auth/logout" method="POST" style="display:inline">
+        <button type="submit" class="btn btn-outline">Logout</button>
+      </form>
+    </div>
+  <% } %>
+</nav>

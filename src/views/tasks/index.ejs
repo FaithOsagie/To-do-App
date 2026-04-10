@@ -1,0 +1,76 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar', { username }) %>
+
+<main class="tasks-container">
+  <div class="tasks-header">
+    <h1>My Tasks</h1>
+    <a href="/tasks/new" class="btn btn-primary">+ New Task</a>
+  </div>
+
+  <!-- Filter and Sort Controls -->
+  <form method="GET" action="/tasks" class="filter-bar">
+    <div class="filter-group">
+      <label>Filter:</label>
+      <select name="filter" onchange="this.form.submit()">
+        <option value="all"       <%= filter === 'all'       ? 'selected' : '' %>>All</option>
+        <option value="pending"   <%= filter === 'pending'   ? 'selected' : '' %>>Pending</option>
+        <option value="completed" <%= filter === 'completed' ? 'selected' : '' %>>Completed</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>Sort:</label>
+      <select name="sort" onchange="this.form.submit()">
+        <option value="newest" <%= sort === 'newest' ? 'selected' : '' %>>Newest First</option>
+        <option value="oldest" <%= sort === 'oldest' ? 'selected' : '' %>>Oldest First</option>
+      </select>
+    </div>
+  </form>
+
+  <!-- Task List -->
+  <% if (tasks.length === 0) { %>
+    <div class="empty-state">
+      <p>No tasks yet. <a href="/tasks/new">Create your first task</a>!</p>
+    </div>
+  <% } else { %>
+    <ul class="task-list">
+      <% tasks.forEach(task => { %>
+        <li class="task-item task-<%= task.status %>">
+          <div class="task-info">
+            <span class="task-title <%= task.status === 'completed' ? 'strikethrough' : '' %>">
+              <%= task.title %>
+            </span>
+            <% if (task.description) { %>
+              <p class="task-desc"><%= task.description %></p>
+            <% } %>
+            <span class="badge badge-<%= task.status %>"><%= task.status %></span>
+          </div>
+          <div class="task-actions">
+            <a href="/tasks/<%= task._id %>/edit" class="btn btn-sm btn-outline">Edit</a>
+            <!-- Quick complete/pending toggle -->
+            <% if (task.status === 'pending') { %>
+              <form action="/tasks/<%= task._id %>" method="POST" style="display:inline">
+                <input type="hidden" name="title" value="<%= task.title %>" />
+                <input type="hidden" name="description" value="<%= task.description %>" />
+                <input type="hidden" name="status" value="completed" />
+                <button type="submit" class="btn btn-sm btn-success">✓ Done</button>
+              </form>
+            <% } else { %>
+              <form action="/tasks/<%= task._id %>" method="POST" style="display:inline">
+                <input type="hidden" name="title" value="<%= task.title %>" />
+                <input type="hidden" name="description" value="<%= task.description %>" />
+                <input type="hidden" name="status" value="pending" />
+                <button type="submit" class="btn btn-sm btn-outline">↩ Undo</button>
+              </form>
+            <% } %>
+            <form action="/tasks/<%= task._id %>/delete" method="POST" style="display:inline"
+                  onsubmit="return confirm('Delete this task?')">
+              <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+            </form>
+          </div>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+</main>
+</body>
+</html>
